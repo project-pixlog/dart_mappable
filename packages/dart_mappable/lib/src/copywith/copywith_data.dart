@@ -11,8 +11,10 @@ class FieldCopyWithData extends CopyWithData {
 
   @override
   V get<V>(Symbol name, {Object? or = $none}) {
-    if (fields.containsKey(name) || or == $none) {
-      return fields[name] as V;
+    // This modification makes FieldCopyWithData behave as MergeCopyWithData
+    final v = fields[name];
+    if ((fields.containsKey(name) && v != null) || or == $none) {
+      return v as V;
     } else {
       return or as V;
     }

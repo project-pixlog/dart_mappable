@@ -82,10 +82,10 @@ void main() {
       expect(p2.car.brand!.name, equals('BMW'));
 
       p2 = p2.copyWith.car.brand!(name: null);
-      expect(p2.car.brand!.name, equals(null));
+      expect(p2.car.brand!.name, equals('BMW'));
 
       p2 = p2.copyWith.car(brand: null);
-      expect(p2.car.brand, equals(null));
+      expect(p2.car.brand, equals(Brand('BMW')));
 
       Person p3 =
           person.copyWith.car.$update((c) => Car(c.brand, '${c.model}_xx'));
@@ -139,7 +139,7 @@ void main() {
       list = list.copyWith.items.add(Brand('Skoda'));
       expect(list.items.length, equals(3));
       list = list.copyWith(items: null);
-      expect(list.items.length, equals(0));
+      expect(list.items.length, equals(3));
     });
 
     test('Should use generic copyWith', () {
