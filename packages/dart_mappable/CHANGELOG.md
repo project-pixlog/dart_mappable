@@ -1,3 +1,8 @@
+# 4.2.1+1
+
+- Make FieldCopyWithData behave like MergeCopyWithData
+- Updated docs.
+
 # 4.2.1
 
 - Performance improvements.
